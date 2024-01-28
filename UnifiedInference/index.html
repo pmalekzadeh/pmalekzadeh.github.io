@@ -6,8 +6,9 @@
     <meta name="description" content="Nuvo: Neural UV Mapping">
     <meta name="keywords" content="NeRF">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>A ROBUST QUANTILE HUBER LOSS WITH INTERPRETABLE PARAMETER
-    ADJUSTMENT IN DISTRIBUTIONAL REINFORCEMENT LEARNING</title>
+    <title>Active Inference and Reinforcement Learning: A unified inference on continuous state and action spaces under
+         partially
+    observability</title>
 
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -39,31 +40,25 @@
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
 
-                        <h1 class="title is-1 publication-title">A robust quantile huber loss with interpretable parameter adjustment in
-                        distributional reinforcement learning</h1>
+                        <h1 class="title is-1 publication-title">Active Inference and Reinforcement Learning: A unified inference on 
+                            continuous state and action spaces under partially
+                        observability</h1>
                         <div class="is-size-5 publication-authors">
                             <span class="author-block">
                                 <a href="https://pmalekzadeh.github.io">Parvin Malekzadeh</a><sup>1</sup>,</span>
                             <span class="author-block">
                                 <a href="https://www.dsp.utoronto.ca/~kostas/">Konstantinos N.
-                                    Plataniotis</a><sup>1</sup>,</span>
-                            <span class="author-block">
-                                <a>Zissis Poulos</a><sup>2</sup>,</span>
-                            <span class="author-block">
-                                <a>Zeyu Wang</a><sup>2</sup>,</span>
-                        </div>
+                                    Plataniotis</a><sup>1</sup>,</span>                        </div>
 
                         <div class="is-size-5 publication-authors">
                             <span class="author-block"><sup>1</sup>University of Toronto,</span>
-                            <span class="author-block"><sup>2</sup>University of Toronto</span>
-                            <br>ICASSP 2024</span>
                         </div>
 
                         <div class="column has-text-centered">
                             <div class="publication-links">
                                 <!-- PDF Link. -->
                                 <span class="link-block">
-                                    <a href="https://arxiv.org/pdf/2401.02325.pdf"
+                                    <a href="https://arxiv.org/pdf/2212.07946.pdf"
                                         class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <i class="ai ai-arxiv"></i>
@@ -72,7 +67,7 @@
                                     </a>
                                 </span>
 
-                                <span class="link-block">
+                                <!-- <span class="link-block">
                                     <a href="https://github.com/pmalekzadeh/A-robust-quantile-huber-loss" 
                                      class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
@@ -81,6 +76,7 @@
                                         <span>Code</span>
                                     </a>
                                 </span>
+                            -->
                
 
                             </div>
@@ -100,29 +96,47 @@
             <h2 class="title is-3">Abstract</h2>
             <div class="content has-text-justified">
                 <p>
-                    Distributional Reinforcement Learning (RL) estimates return distribution mainly by l
-                    earning quantile
-                    values via minimizing the quantile Huber loss function, entailing a threshold parameter often 
-                    selected
-                    heuristically or via hyperparameter search, which
-                    may not generalize well and can be suboptimal. This
-                    paper introduces a generalized quantile Huber loss
-                    function derived from Wasserstein distance (WD)
-                    calculation between Gaussian distributions, capturing noise in predicted (current) and 
-                    target (Bellmanupdated) quantile
-                    values. </p>
+                    Reinforcement learning (RL) has garnered significant attention for developing  
+                    agents that aim to maximize
+                    rewards, specified by an external supervisor, within
+                    fully observable environments. However, many real-world problems involve partial or
+                    noisy observations, where agents do not have access to complete and accurate 
+                    information about the environment. These
+                    problems are commonly formulated as partially
+                    observable Markov decision processes (POMDPs). Previous studies have tackled RL in
+                    POMDPs by either incorporating the memory of past actions and observations or by 
+                    inferring the true state of the
+                    environment from observed data. Nevertheless, aggregating
+                    observations and actions over time becomes impractical in high-dimensional continuous spaces. 
+                    Furthermore,
+                    inference-based RL approaches often require a large number
+                    of environmental samples to perform well, as they focus solely on reward maximization and 
+                    neglect uncertainty in the
+                    inferred state. </p>
                 <p>
-                    Compared to the classical
-                    quantile Huber loss, this innovative loss function
-                    enhances robustness against outliers. Notably, the
-                    classical Huber loss function can be seen as an approximation of our proposed loss, 
-                    enabling parameter adjustment by
-                    approximating the amount of noise
-                    in the data during the learning process. </p>
-                <p> Empirical
-                tests on Atari games, a common application in distributional RL, and a recent hedging strategy using
-                distributional RL, validate the effectiveness of our
-                proposed loss function and its potential for parameter adjustments in distributional RL.</p>
+                    Active inference (AIF) is a framework naturally formulated in POMDPs and directs 
+                    agents to select actions by minimizing a
+                    function called expected free energy (EFE). This supplies reward-maximizing 
+                    (or exploitative) behaviour, as in RL, with
+                    information-seeking (or exploratory) behaviour.
+                    Despite this exploratory behaviour of AIF, its usage is limited to small and 
+                    discrete spaces due
+                    to the computational challenges associated with EFE.
+                    In this paper, we propose a unified principle that establishes a theoretical connection
+                    between AIF and RL, enabling seamless integration of these two approaches and 
+                    overcoming their aforementioned
+                    limitations in continuous space POMDP settings. 
+                 </p>
+                <p> We
+                substantiate our findings with rigorous theoretical analysis, providing novel perspectives
+                for utilizing AIF in the
+                design and implementation of artificial agents. Experimental results demonstrate
+                the superior learning capabilities of
+                our method compared
+                to other alternative RL approaches in solving partially observable tasks with continuous
+                spaces. Notably, our approach harnesses information-seeking exploration, enabling it
+                to effectively solve reward-free problems.
+            </p>
                 </p>
             </div>
         </div>
@@ -153,7 +167,7 @@
     <section class="section">
         <div class="container is-max-desktop">
 
-            <h2 class="title is-3">Comparison with other RL methods.</h2>
+            <h2 class="title is-3">Comparison with other RL methods</h2>
 
             <div class="content has-text-justified">
                 <p>
