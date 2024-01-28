@@ -195,27 +195,59 @@
                         <img src="static/images/Table.JPG" alt="MY ALT TEXT" style="max-width: 100%;">
                                                     <figcaption style=" text-align: center;"></figcaption>
                     </figure>
-
-                    To test our interpretation for k in a more realistic
-                    setting, we assess its performance in option hedging,
-                    a risk-aware financial application where the objective is to optimize the 
-                    Conditional Value-at-Risk at
-                    a 95% confidence level (CVaR95) for total rewards. 
-                    Interestingly, the optimal value of
-                    k for D4PG is not 1, and D4PG-GLA’s estimated
-                    b-value during training aligns with this optimal k
-                    (≈2). These results emphasize the advantages of finetuning k in the quantile Huber loss and demonstrate
-                    the effectiveness of our k interpretation, reducing
-                    the need for extensive parameter searches.
-
-                    <figure>
-                        <img src="static/images/Hedge.JPG" alt="MY ALT TEXT" style="max-width: 70%;">
-                                                                        <figcaption style=" text-align: center;"></figcaption>
-                    </figure>
-
                 
             </div>
 
+        </div>
+    </section>
+
+        <hr />
+
+    <section class="section">
+        <div class="container is-max-desktop">
+    
+            <h2 class="title is-3">Experimental results</h2>
+    
+            <div class="content has-text-justified">
+                <p>
+                    The results presented in Table 2 highlight the effectiveness of the proposed
+                    unified inference algorithm in various aspects: (i) It successfully generalizes MDP
+                    actor-critic methods to the POMDP setting, allowing for more effective exploration
+                    and learning under partial observability. (ii) It outperforms memory-based approaches
+                    in scenarios with noisy observations, indicating the advantage of leveraging the belief
+                    state representation in handling observation noise. (iii) The inclusion of the information
+                    gain intrinsic term into the generalized actor-critic methods improves their robustness
+                    to noisy observations.
+    
+                <figure>
+                    <img src="static/images/Results1.JPG" alt="MY ALT TEXT" style="max-width: 100%;">
+                    <figcaption style=" text-align: center;"></figcaption>
+                </figure>
+                </p>
+            </div>
+
+            <div class="content has-text-justified">
+                <p>
+                    Fig. F.1. compares the exploratory behaviors of our G-SAC agent with ICAM, RND, and VIME, which incorporate
+                    information-oriented exploratory terms as intrinsic rewards in SAC. ICM and RND incorporate 
+                    the prediction error of a transition model, and VIME employs intrinsic rewards that are designed to maximize the information
+                    gain concerning the parameters of the Bayesian neural network.
+                    <br />
+                    The
+                    results indicate that methods with the intrinsic reward being information gain, namely
+                    G-SAC and VIME, learn much faster, suggesting that their exploration is more effective
+                    than the baseline agent’s exploration. On the other hand, the performance of ICM
+                    and RND is strongly undermined by randomness. It is widely recognized that intrinsic motivation based on the prediction error
+                    of a transition model is sensitive to the inherent stochasticity of the environment (Burda
+                    et al., 2018).
+            
+                <figure>
+                    <img src="static/images/Results2.JPG" alt="MY ALT TEXT" style="max-width: 100%;">
+                    <figcaption style=" text-align: center;"></figcaption>
+                </figure>
+                </p>
+            </div>
+    
         </div>
     </section>
 
@@ -233,14 +265,16 @@
     </section> -->
     <!--End paper poster -->
 
+    <hr />
     <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
             <h2 class="title">BibTeX</h2>
             <pre><code>
-            @article{malekzadeh2024robust,
-            title={A Robust Quantile Huber Loss With Interpretable Parameter Adjustment In Distributional Reinforcement Learning},
-            author={Malekzadeh, Parvin and Plataniotis, Konstantinos N and Poulos, Zissis and Wang, Zeyu},
-            journal={arXiv preprint arXiv:2401.02325},
+            @article{malekzadeh2024active,
+            title={Active Inference and Reinforcement Learning: A unified inference on continuous state and action spaces under
+            partially observability},
+            author={Parvin Malekzadeh, Konstantinos N. Plataniotis},
+            journal={arXiv:2212.07946v2},
             year={2024}
             }
         </code></pre>
