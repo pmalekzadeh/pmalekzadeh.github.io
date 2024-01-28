@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Nuvo: Neural UV Mapping">
+    <meta name="keywords" content="NeRF">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UaMB-SF: Uncertainty-aware transfer across tasks using hybrid model-based successor
+    feature reinforcement learning</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="./static/js/video_comparison.js"></script>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏁</text></svg>">
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+
+                        <h1 class="title is-1 publication-title">UaMB-SF: Uncertainty-aware transfer across tasks using hybrid model-based successor
+                        feature reinforcement learning</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://pmalekzadeh.github.io">Parvin Malekzadeh</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a>Ming Hou</a><sup>2</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://www.dsp.utoronto.ca/~kostas/">Konstantinos N. Plataniotis</a><sup>1</sup>,</span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>University of Toronto,</span>
+                            <span class="author-block"><sup>2</sup>Defence Research and Development Canada (DRDC) Toronto Research Centre</span>
+                            <br>Neurocomputing 2023</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+
+                            <span class="link-block">
+                                <a href="https://www.sciencedirect.com/science/article/pii/S092523122300108X?casa_token=jRlpt_0-dSAAAAAA:z_7mAML6hcYM4Eu_c4X0-zO52vN09kXa3JMKqJ1dRgalKxt0HYWRXer8oizHJz5hMCs24wZBVps" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </span>
+                                    <span>Paper</span>
+                                </a>
+                            </span>
+
+                            <span class="link-block">
+                                <a href="https://arxiv.org/pdf/2310.10818.pdf"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="ai ai-arxiv"></i>
+                                    </span>
+                                    <span>arXiv</span>
+                                </a>
+                            </span>
+                                <!-- <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-dark" title="Coming soon!" disabled>
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                    </a>
+                </span>
+                <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-dark" title="Coming soon!" disabled>
+                    <span class="icon">
+                        <i class="far fa-images"></i>
+                    </span>
+                    <span>Data</span>
+                    </a>
+                  </span> -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <figure poster="" id="tree" autoplay controls muted loop height="70%">
+                    <!-- Your video here -->
+                    <img src="static/images/Block.JPG" alt="MY ALT TEXT" />
+                </figure>
+                <h2 class="subtitle has-text-centered">
+                    Visual Illustration of the proposed UaMB-SF framework.
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <hr />
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+                <p>
+                    The ability to transfer and generalize knowledge gained from previous experiences to
+                    downstream tasks can significantly improve sample efficiency of reinforcement learning (RL) algorithms. 
+                    Recent research indicates that successor feature (SF) RL
+                    algorithms enable knowledge generalization between tasks with different rewards but identical 
+                    transition dynamics. Furthermore, uncertainty-aware exploration is widely recognized as another appealing
+                    approach for improving sample efficiency. </p>
+                    <p>
+                    Putting together two ideas of hybrid model-based
+                    successor feature (MB-SF) and uncertainty leads to an approach to the problem of sample efficient uncertainty-aware
+                    knowledge transfer across tasks with different transition dynamics or/and reward functions. 
+                    In this paper, the
+                    uncertainty of the value of each action is approximated by a Kalman filter (KF)-based
+                     multiple-model adaptive
+                    estimation, which treats the parameters of a model as random variables. 
+                    To the best of our knowledge,
+                    this is the first attempt at formulating a hybrid MB-SF algorithm capable of generalizing
+                     knowledge across large or
+                    continuous state space tasks with various transition dynamics while requiring less computation at decision time than MB
+                    methods. </p>
+                    <p> We highlight why previous SF-based methods are constrained to knowledge generalization across same transition
+                    dynamics, and design a set of
+                     demonstration tasks to
+                    empirically validate the effectiveness of our proposed approach. The results show that 
+                    our algorithm generalizes its
+                    knowledge across different transition dynamics, and outperforms existing SF and MB approaches. We believe that our proposed framework can account for the
+                    computationally efficient behavioural flexibilities observed in the empirical literature and can also serve as a solid
+                    theoretical foundation for future experimental work.</p>
+                </p>
+            </div>
+        </div>
+
+        </div>
+    </section>
+    <hr />
+
+    <section class="section">
+            <div class="container is-max-desktop">
+        
+                <h2 class="title is-3">A Motivating Example</h2>
+        
+                <div class="content has-text-justified">
+                    Let’s consider the grid-world task shown in Fig. (a). First, an agent learns the value function and optimal
+                    policy of
+                    the source task (Fig. (a), up panel) by learning the reward and the SR matrix through both the TD-SR and
+                    MB-SR methods.
+                    The learned reward function and the SR matrices are then transferred to be trained on the test task (Fig.
+                    (a), down
+                    panel). The test task is generated by placing a barrier at state s<sub>4</sub> of the source task while
+                    retaining the reward
+                    values consistent with the source task. During the first trial of learning the test task, the agent is not
+                    aware of the
+                    barrier; hence, it mimics actions learned from the source task until it notices the block by repeatedly
+                    being dropped at
+                    s<sub>3</sub> rather than s<sub>4</sub> after taking the optimal action realized for s3 in the source task
+                    (i.e., moving right).
+                    <figure>
+                        <img src="static/images/Motivate.JPG" alt="MY ALT TEXT" style="max-width: 40%;>
+                                        <figcaption style=" text-align: center;"></figcaption>
+                    </figure>
+                    As illustrated by the motivating example, unlike MB-SR, TD-SR cannot instantly adapt the SR values for
+                    states that do
+                    not directly experience changes in transition dynamics. Instead, TD-SR can only learn about changes in the
+                    transition
+                    structure incrementally; hence, it requires full trajectories through the state space to adapt the entire SR
+                    to the
+                    changes
+                </div>
+        
+            </div>
+    </section>
+    <hr />
+
+    <section class="section">
+        <div class="container is-max-desktop">
+    
+            <h2 class="title is-3">Comparison with other RL methods.</h2>
+    
+            <div class="content has-text-justified">
+                <p>
+                    Table 2 summarizes the generalization properties and computation required at test tasks for various RL algorithms.
+                
+                <figure>
+                    <img src="static/images/Table.JPG" alt="MY ALT TEXT" style="max-width: 100%;>
+                                <figcaption style=" text-align: center;"></figcaption>
+                </figure>
+            </div>
+    
+        </div>
+    </section>
+
+
+    <hr />
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <h2 class="title is-3">Validation of UaMB-SF adaptability to environmental changes</h2>
+
+            <div class="content has-text-justified">
+                <p>
+                    The transfer setup of the proposed UaMB-SF algorithm is presented in Fig. 4. &theta;<sup>a</sup>
+                    and F <sup>a</sup>
+                    capture changes in the reward
+                    function and transition dynamics, respectively. After training UaMB-SF on a source task, 
+                    only a few samples are
+                    needed to update &theta;<sup>a</sup>
+                    and F <sup>a</sup>
+                    , eliminating the need for exhaustive interactions from scratch.
+                </p>
+            <figure>
+                <img src="static/images/transfer.JPG" alt="MY ALT TEXT" style="max-width: 80%;>
+                                                    <figcaption style=" text-align: center;"></figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <hr />
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@article{malekzadeh2023uncertainty,
+            title={Uncertainty-aware transfer across tasks using hybrid model-based successor feature reinforcement learning☆},
+            author={Malekzadeh, Parvin and Hou, Ming and Plataniotis, Konstantinos N},
+            journal={Neurocomputing},
+            volume={530},
+            pages={165--187},
+            year={2023},
+            publisher={Elsevier}
+            }</code></pre>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This website design comes from <a href="https://keunhong.com/">Keunhong Park's</a> <a
+                                href="https://camp-nerf.github.io/">CamP project page</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
