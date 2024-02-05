@@ -39,8 +39,8 @@
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
 
-                        <h1 class="title is-1 publication-title">UUaE: A Unified Uncertainty-Aware Exploration
-                             Combining Epistemic And Aleatory Uncertainty</h1>
+                        <h1 class="title is-1 publication-title"> UUaE: A Unified Uncertainty-aware Exploration
+                             combining epistemic and aleatory uncertainty</h1>
                         <div class="is-size-5 publication-authors">
                             <span class="author-block">
                                 <a href="https://pmalekzadeh.github.io">Parvin Malekzadeh</a><sup>1</sup>,</span>
@@ -80,6 +80,25 @@
                                         <span>Paper</span>
                                     </a>
                                 </span>
+
+                                <!-- Video Link. -->
+                                <span class="link-block">
+                                    <a href="https://youtu.be/hekXZ6mNuVQ?si=8VauJX10MjkMJAwL" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </span>
+                                        <span>Video</span>
+                                    </a>
+                                </span>
+
+                                <span class="link-block">
+                                    <a href="./static/img/Poster.jpg" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="far fa-image"></i>
+                                        </span>
+                                        <span>Poster</span>
+                                    </a>
+                                </span>
                
 
                             </div>
@@ -91,8 +110,23 @@
         </div>
     </section>
 
-    <hr />
-
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+            <!-- Fill in Image Link -->
+        <figure poster="" id="tree" autoplay controls muted loop height="70%">
+            <!-- Your video here -->
+            <img src="static/images/Structure.PNG" alt="MY ALT TEXT" />
+        </figure>
+        <h2 class="subtitle has-text-centered">
+            Steps taken to derive our proposed UUaE method.
+            Orange and green shaded areas show learning of
+            epistemic and aleatory uncertainty in UUaE.
+        </h2>
+        </div>
+    </div>
+    <hr>
+</section>
     <section class="section">
         <div class="container is-max-desktop">
             <!-- Abstract. -->
@@ -128,80 +162,64 @@
         </div>
 
         </div>
-    </section>
-    <hr />
-
-    <!-- Video
+    
+<hr>
     <section class="section">
         <div class="container is-max-desktop">
 
-            <h2 class="title is-3">Video</h2>
-            <div class="container is-max-desktop">
-
-                <div class="publication-video">
-                    <iframe src="https://www.youtube.com/embed/hmJiOSTDQZI?si=Xq4TWH4D9BwMmlp7" frameborder="0"
-                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section> -->
-    
-
-    
-
-    <section class="section">
-        <div class="container is-max-desktop">
-
-            <h2 class="title is-3">Comparison with other RL methods</h2>
+            <h2 class="title is-3">Comparison with other uncertainty-aware methods</h2>
 
             <div class="content has-text-justified">
                 <p>
-                    Table 1 compares human-normalized
-                    scores resulted from our loss function (GL) and its apprxoimation (GLA) with RL literature, 
-                    which used the quantile Huber
-                    loss with a fixed k=1, neglecting the impact of varying k on performance.
-
+                    In this section, we evaluate the performance of UUaE
+                    on two Atari games with sparse reward functions. To
+                    test the proposed algorithm in a more realistic setting, we
+                    also run our algorithm on an autonomous vehicle driving
+                    simulator [29] in a highway domain, where rewards are
+                    designed to penalize unsafe driving behavior. The sparsity and risk-sensitivity of rewards in 
+                    these tasks make uncertainty-aware exploration challenging. </p>
+                    <p>Fig. 2 presents the results averaged over 10 random seeds. </p>
                     <figure>
-                        <img src="static/images/Table.JPG" alt="MY ALT TEXT" style="max-width: 70%;">
+                        <img src="static/images/Results.JPG" alt="MY ALT TEXT" style="max-width: 100%;">
                                                     <figcaption style=" text-align: center;"></figcaption>
                     </figure>
-
-                    To test our interpretation for k in a more realistic
-                    setting, we assess its performance in option hedging,
-                    a risk-aware financial application where the objective is to optimize the 
-                    Conditional Value-at-Risk at
-                    a 95% confidence level (CVaR95) for total rewards. 
-                    Interestingly, the optimal value of
-                    k for D4PG is not 1, and D4PG-GLA’s estimated
-                    b-value during training aligns with this optimal k
-                    (≈2). These results emphasize the advantages of finetuning k in the quantile Huber loss and demonstrate
-                    the effectiveness of our k interpretation, reducing
-                    the need for extensive parameter searches.
-
-                    <figure>
-                        <img src="static/images/Hedge.JPG" alt="MY ALT TEXT" style="max-width: 70%;">
-                                                                        <figcaption style=" text-align: center;"></figcaption>
-                    </figure>
-
                 
             </div>
 
         </div>
     </section>
 
+    <hr>
+    <!-- Video -->
+    <section class="section">
+        <div class="container is-max-desktop">
+    
+            <h2 class="title is-3">Video</h2>
+            <div class="container is-max-desktop">
+    
+                <div class="publication-video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/hekXZ6mNuVQ?si=3EeRnir4d5NyLJAG"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
     <!-- Paper poster -->
-    <!-- <section class="hero is-small is-light">
+    <section class="hero is-small is-light">
         <div class="hero-body">
             <div class="container">
                 <h2 class="title">Poster</h2>
     
-                <iframe src="static/img/DataDAM-ICCV23-Poster.pdf" width="100%" height="550">
+                <iframe src="static/images/Poster.pdf" width="100%" height="550">
                 </iframe>
     
             </div>
         </div>
-    </section> -->
+    </section> 
     <!--End paper poster -->
     <hr />
 
@@ -209,11 +227,13 @@
         <div class="container is-max-desktop content">
             <h2 class="title">BibTeX</h2>
             <pre><code>
-            @article{malekzadeh2024robust,
-            title={A Robust Quantile Huber Loss With Interpretable Parameter Adjustment In Distributional Reinforcement Learning},
-            author={Malekzadeh, Parvin and Plataniotis, Konstantinos N and Poulos, Zissis and Wang, Zeyu},
-            journal={arXiv preprint arXiv:2401.02325},
-            year={2024}
+            @inproceedings{malekzadeh2023unified,
+            title={A Unified Uncertainty-Aware Exploration: Combining Epistemic and Aleatory Uncertainty},
+            author={Malekzadeh, Parvin and Hou, Ming and Plataniotis, Konstantinos N},
+            booktitle={ICASSP 2023-2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+            pages={1--5},
+            year={2023},
+            organization={IEEE}
             }
         </code></pre>
         </div>
