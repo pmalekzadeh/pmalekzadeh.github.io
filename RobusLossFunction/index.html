@@ -22,6 +22,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="./static/js/bulma-carousel.min.js"></script>
     <script src="./static/js/bulma-slider.min.js"></script>
     <script src="./static/js/index.js"></script>
@@ -99,8 +101,8 @@
             <h2 class="title is-3">Abstract</h2>
             <div class="content has-text-justified">
                 <p>
-                    Distributional Reinforcement Learning (RL) estimates return distribution mainly by l
-                    earning quantile
+                    Distributional Reinforcement Learning (RL) estimates return distribution mainly by 
+                    learning quantile
                     values via minimizing the quantile Huber loss function, entailing a threshold parameter often 
                     selected
                     heuristically or via hyperparameter search, which
@@ -108,7 +110,7 @@
                     paper introduces a generalized quantile Huber loss
                     function derived from Wasserstein distance (WD)
                     calculation between Gaussian distributions, capturing noise in predicted (current) and 
-                    target (Bellmanupdated) quantile
+                    target (Bellman-updated) quantile
                     values. </p>
                 <p>
                     Compared to the classical
@@ -117,15 +119,39 @@
                     classical Huber loss function can be seen as an approximation of our proposed loss, 
                     enabling parameter adjustment by
                     approximating the amount of noise
-                    in the data during the learning process. </p>
+                    in the data during the learning process.
+                    This allows tailoring of the threshold parameter to suit specific problem characteristics.
+                </p>
                 <p> Empirical
-                tests on Atari games, a common application in distributional RL, and a recent hedging strategy using
+                tests on Atari games, a common application in distributional RL, and a recent hedging
+                 strategy using
                 distributional RL, validate the effectiveness of our
                 proposed loss function and its potential for parameter adjustments in distributional RL.</p>
                 </p>
             </div>
         </div>
 
+        </div>
+    </section>
+    <hr />
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <h2 class="title is-3">Motivation</h2>
+            <div class="content has-text-justified">
+                <p>
+                    <figure>
+                        <img src="static/images/Motivation.JPG" alt="MY ALT TEXT" style="max-width: 90%;">
+                        <figcaption style=" text-align: center;"></figcaption>
+                    </figure>
+
+                    <i> Given the effect of the threshold parameter \( k \), instead of setting \( k = 1 \)
+                    by default, how about developing an
+                    interpretation for the quantile Huber loss that supports adaptive tuning of \( k \)? </i>
+            </div>
+        </div>
+    
         </div>
     </section>
     <hr />
@@ -156,26 +182,26 @@
 
             <div class="content has-text-justified">
                 <p>
-                    Table 1 compares human-normalized
-                    scores resulted from our loss function (GL) and its apprxoimation (GLA) with RL literature, 
-                    which used the quantile Huber
-                    loss with a fixed k=1, neglecting the impact of varying k on performance.
+                    We replaced the loss function in QR-DQN and FQF, which utilize the quantile Huber loss
+                     with a fixed \( k=1 \), without considering the impact of varying
+                    \( k \) on performance, with our loss function (GL). 
+                    Table 1 compares human-normalized scores on Atari games.
 
                     <figure>
                         <img src="static/images/Table.JPG" alt="MY ALT TEXT" style="max-width: 70%;">
                                                     <figcaption style=" text-align: center;"></figcaption>
                     </figure>
 
-                    To test our interpretation for k in a more realistic
+                    To test our interpretation for \( k \) in a more realistic
                     setting, we assess its performance in option hedging,
                     a risk-aware financial application where the objective is to optimize the 
                     Conditional Value-at-Risk at
                     a 95% confidence level (CVaR95) for total rewards. 
                     Interestingly, the optimal value of
-                    k for D4PG is not 1, and D4PG-GLA’s estimated
-                    b-value during training aligns with this optimal k
-                    (≈2). These results emphasize the advantages of finetuning k in the quantile Huber loss and demonstrate
-                    the effectiveness of our k interpretation, reducing
+                    \( k \) for D4PG is not 1, and D4PG-GL’s estimated
+                    b-value during training aligns with this optimal \( k (≈2) \). 
+                    These results emphasize the advantages of finetuning \( k \) in the quantile Huber loss and demonstrate
+                    the effectiveness of our \( k \) interpretation, reducing
                     the need for extensive parameter searches.
 
                     <figure>
@@ -190,19 +216,23 @@
     </section>
 
     <!-- Paper poster -->
-    <!-- <section class="hero is-small is-light">
+    <section class="hero is-small is-light">
         <div class="hero-body">
             <div class="container">
                 <h2 class="title">Poster</h2>
-    
-                <iframe src="static/img/DataDAM-ICCV23-Poster.pdf" width="100%" height="550">
+
+                <!-- Using an aspect ratio based on A0 dimensions -->
+                <iframe src="static/images/poster.pdf"
+                    style="width:100%; height:calc(100vw * 1.41); max-height: 1189px; aspect-ratio: 841 / 1189;">
                 </iframe>
-    
+
             </div>
         </div>
-    </section> -->
-    <!--End paper poster -->
-    <hr />
+    </section>
+    <!-- End paper poster -->
+<hr />
+
+
 
     <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
