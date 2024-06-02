@@ -144,10 +144,7 @@
                     overcoming their aforementioned
                     limitations in continuous space POMDP settings. 
                  </p>
-                <p> We
-                substantiate our findings with rigorous theoretical analysis, providing novel perspectives
-                for utilizing AIF in the
-                design and implementation of artificial agents. Experimental results demonstrate
+                <p> Experimental results demonstrate
                 the superior learning capabilities of
                 our method compared
                 to other alternative RL approaches in solving partially observable tasks with continuous
@@ -188,16 +185,39 @@
 
             <div class="content has-text-justified">
                 <p>
-                    Table 1 provides a comprehensive comparison between the key characteristics of our
-                    problem and the problems addressed by the majority of RL and AIF paradigms.
-
-                    <figure>
-                        <img src="static/images/Table.JPG" alt="MY ALT TEXT" style="max-width: 100%;">
-                                                    <figcaption style=" text-align: center;"></figcaption>
-                    </figure>
+                    Table 1 compares foundational elements and decision-making strategies within
+                    RL, AIF, and our proposed unified inference approach, with a particular focus on their
+                    application in continuous decision spaces.
                 
+                <figure>
+                    <img src="static/images/Table1.JPG" alt="MY ALT TEXT" style="max-width: 80%;">
+                    <figcaption style=" text-align: center;"></figcaption>
+                </figure>
+                </p>
+
             </div>
 
+        </div>
+    </section>
+
+    <hr />
+
+    <section class="section">
+        <div class="container is-max-desktop">
+    
+            <h2 class="title is-3">The Proposed Unified Iteration Framework</h2>
+    
+            <div class="content has-text-justified">
+                <p>
+    
+                <figure>
+                    <img src="static/images/Summary.JPG" alt="MY ALT TEXT" style="max-width: 80%;">
+                    <figcaption style=" text-align: center;"></figcaption>
+                </figure>
+                </p>
+    
+            </div>
+    
         </div>
     </section>
 
@@ -206,9 +226,11 @@
     <section class="section">
         <div class="container is-max-desktop">
     
-            <h2 class="title is-3">Experimental results</h2>
+            <h2 class="title is-3">Experimental Results</h2>
     
+            <!-- Sub-section 1: Effectiveness and Performance -->
             <div class="content has-text-justified">
+                <h3 class="title is-4">Evaluation on partial and noisy observation tasks</h3>
                 <p>
                     The results presented in Table 2 highlight the effectiveness of the proposed
                     unified inference algorithm in various aspects: (i) It successfully generalizes MDP
@@ -218,17 +240,17 @@
                     state representation in handling observation noise. (iii) The inclusion of the information
                     gain intrinsic term into the generalized actor-critic methods improves their robustness
                     to noisy observations.
-    
-                <figure>
-                    <img src="static/images/Results1.JPG" alt="MY ALT TEXT" style="max-width: 100%;">
-                    <figcaption style=" text-align: center;"></figcaption>
-                </figure>
                 </p>
-            </div>
+                <figure>
+                    <img src="static/images/Results1.JPG" alt="Graph showing experimental results" style="max-width: 100%;">
+                </figure>
+                </div>
 
+            <!-- Sub-section 2: Comparative Analysis -->
             <div class="content has-text-justified">
+                <h3 class="title is-4">Evaluation of exploratory abilities</h3>
                 <p>
-                    Fig. F.1. compares the exploratory behaviors of our G-SAC agent with ICAM, RND, and VIME, which incorporate
+                    Fig. 2. compares the exploratory behaviors of our G-SAC agent with ICAM, RND, and VIME, which incorporate
                     information-oriented exploratory terms as intrinsic rewards in SAC. ICM and RND incorporate 
                     the prediction error of a transition model, and VIME employs intrinsic rewards that are designed to maximize the information
                     gain concerning the parameters of the Bayesian neural network.
@@ -241,15 +263,13 @@
                     of a transition model is sensitive to the inherent stochasticity of the environment (Burda
                     et al., 2018).
             
-                <figure>
-                    <img src="static/images/Results2.JPG" alt="MY ALT TEXT" style="max-width: 100%;">
-                    <figcaption style=" text-align: center;"></figcaption>
-                </figure>
-                </p>
+            </p>
+            <figure>
+                <img src="static/images/Results2.JPG" alt="Graph comparing exploration behaviors" style="max-width: 100%;">
+            </figure>
             </div>
-    
-        </div>
-    </section>
+            </div>
+            </section>
 
     <!-- Paper poster -->
     <!-- <section class="hero is-small is-light">
@@ -272,7 +292,7 @@
             <pre><code>
             @article{malekzadeh2024active,
             title={Active Inference and Reinforcement Learning: A unified inference on continuous state and action spaces under
-            partially observability},
+            partial observability},
             author={Parvin Malekzadeh, Konstantinos N. Plataniotis},
             journal={arXiv:2212.07946v2},
             year={2024}
