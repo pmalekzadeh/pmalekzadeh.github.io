@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Nuvo: Neural UV Mapping">
+    <meta name="keywords" content="NeRF">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EX-DRL: Hedging Against Heavy Losses with EXtreme Distributional Reinforcement Learning</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="./static/js/video_comparison.js"></script>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏁</text></svg>">
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+
+                        <h1 class="title is-1 publication-title">EX-DRL: Hedging Against Heavy Losses with EXtreme Distributional Reinforcement Learning</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://pmalekzadeh.github.io">Parvin Malekzadeh</a><sup>1</sup>,</span>
+                           
+                                <span class="author-block">
+                                <a href="https://www.dsp.utoronto.ca/~kostas/">Zissis Poulos</a><sup>2</sup></span>
+
+                            <span class="author-block">
+                                <a href="https://www.dsp.utoronto.ca/~kostas/">Jacky Chen</a><sup>1</sup></span>
+
+                            <span class="author-block">
+                                <a href="https://www.dsp.utoronto.ca/~kostas/">Zeyu Wang</a><sup>1</sup></span>
+
+                            <span class="author-block">
+                                <a href="https://www.dsp.utoronto.ca/~kostas/">Konstantinos N.
+                                    Plataniotis</a><sup>1</sup></span>                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>University of Toronto</span>,
+                            <span class="author-block"><sup>2</sup> York University</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/pdf/2408.12446"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+
+                                <span class="link-block">
+                                    <a href="https://github.com/pmalekzadeh/EX-DRL" 
+                                     class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                           
+               
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr />
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <figure poster="" id="tree" autoplay controls muted loop height="70%">
+                    <!-- Your video here -->
+                    <img src="static/images/EX-DRL.PNG" alt="MY ALT TEXT" />
+                </figure>
+                <h2 class="subtitle has-text-centered">
+               Visual illustration of the proposed EX-DRL framework.                </h2>
+            </div>
+        </div>
+    </section>
+    
+    <hr />
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+                <p>
+                    Recent advancements in Distributional Reinforcement Learning (DRL) for modeling loss distributions have shown promise in
+                    developing hedging strategies in derivatives markets. A common approach in DRL involves learning the quantiles of loss
+                    distributions at specified levels using Quantile
+                    Regression (QR). This method is particularly effective in option hedging due to its direct quantilebased risk
+                    assessment, such as Value at Risk (VaR) and Conditional Value at Risk (CVaR). However,
+                    these risk measures depend on the accurate estimation of extreme quantiles in the loss distribution’s
+                    tail, which can be imprecise in QR-based DRL due to the rarity and extremity of tail data, as highlighted in the
+                    literature. </p>
+                <p>
+                    To address this issue, we propose EXtreme DRL (EX-DRL), which enhances
+                    extreme quantile prediction by modeling the tail of the loss distribution with a Generalized Pareto
+                    Distribution (GPD). This method introduces supplementary data to mitigate the scarcity of extreme
+                    quantile observations, thereby improving estimation accuracy through QR.
+                 </p>
+                <p> Comprehensive experiments on gamma hedging options demonstrate that EX-DRL improves existing QR-based models
+                by providing more precise estimates of extreme quantiles, thereby improving the computation and
+                reliability of risk metrics for complex financial risk management.
+            </p>
+                </p>
+            </div>
+        </div>
+
+        </div>
+    </section>
+    <hr />
+
+    <!-- Video
+    <section class="section">
+        <div class="container is-max-desktop">
+
+            <h2 class="title is-3">Video</h2>
+            <div class="container is-max-desktop">
+
+                <div class="publication-video">
+                    <iframe src="https://www.youtube.com/embed/hmJiOSTDQZI?si=Xq4TWH4D9BwMmlp7" frameborder="0"
+                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section> -->
+    
+
+    
+
+    <section class="section">
+        <div class="container is-max-desktop">
+
+            <h2 class="title is-3">Hedging with EX-DRL</h2>
+
+            <div class="content has-text-justified">
+                <p>
+                    Our proposed EX-DRL approach is compatible with any QR-based method.
+                </p>
+                <p>
+                    Drawing inspiration from the effectiveness of QR-D4PG, a recent actor-critic QR-based DRL method, we propose
+                    an extension, EX-D4PG, which replaces the quantile distribution used for the target distribution in QR-D4PG with
+                    our mixture model target distribution. Unlike QR-D4PG, EX-D4PG’s critic not only reflects the usual dynamics of
+                    the return distribution but also emphasizes extreme event modeling.
+                    <figure>
+                        <img src="static/images/Network.jpg" alt="MY ALT TEXT" style="max-width: 100%;">
+                        <figcaption style="text-align: center;"> Figure 1: The network graph of the proposed EX-D4PG framework.</figcaption>
+                    </figure>
+                </p>
+               
+
+            </div>
+
+        </div>
+    </section>
+
+    <hr />
+
+    
+    <section class="section">
+        <div class="container is-max-desktop">
+    
+            <h2 class="title is-3">Experimental Results</h2>
+            We conducted a series of hedging experiments to compare the performance of EX-D4PG with QR-D4PG.
+            <div class="content has-text-justified">
+            <p> <figure style="display: flex; flex-direction: column; align-items: center;">
+            
+                <div style="display: flex; justify-content: center; gap: 20px;">
+                    <img src="static/images/Different_objectives_vol0.3.png" alt="First Network Image" style="max-width: 100%;">
+                    <img src="static/images/Different_objectives_vol0.5.png" alt="Second Network Image" style="max-width: 100%;">
+                </div>
+                
+                
+                <figcaption style="text-align: center;">Figure 2: VaR and CVaR values when volatility = 0.3 (left) and volatility = 0.5 (right).</figcaption>
+            
+            </figure>
+            </p>
+            </div>
+
+            <div class="content has-text-justified">
+                <p>
+                <figure style="display: flex; flex-direction: column; align-items: center;">
+            
+                    <figure>
+                        <img src="static/images/Table.JPG" alt="MY ALT TEXT" style="max-width: 80%;">
+                        <!-- <figcaption style="text-align: center;">The network graph of the proposed EX-D4PG framework.</figcaption> -->
+                    </figure>
+                </p>
+            </div>
+
+            <div class="content has-text-justified">
+            <p>
+            <figure style="display: flex; flex-direction: column; align-items: center;">
+
+                <div style="display: flex; justify-content: center; gap: 20px;">
+                    <img src="static/images/VaR95_vols.png" alt="First Network Image" style="max-width: 100%;">
+                    <img src="static/images/CVaR95_vols.png" alt="Second Network Image"
+                        style="max-width: 100%;">
+                </div>
+                <figcaption style="text-align: center;">Figure 3: Comparison of VaR95 (left) and CVaR95 (right) at different volatility levels.
+
+                    </figcaption>
+
+            </figure>
+            </p>
+            </div>
+
+            <div class="content has-text-justified">
+                <p>
+                <figure style="display: flex; flex-direction: column; align-items: center;">
+            
+                    <div style="display: flex; justify-content: center; gap: 20px;">
+                        <img src="static/images/VaR95_Hedge_ratio.png" alt="First Network Image" style="max-width: 45%;">
+                        <img src="static/images/CVaR95_Hedge_ratio.png" alt="Second Network Image" style="max-width: 45%;">
+                    </div>
+                    <figcaption style="text-align: center;">Figure 4: Comparison of gamma hedge ratio using VaR95 (left) and CVaR95 (right) at various volatility levels.
+            
+                    </figcaption>
+            
+                </figure>
+                </p>
+            </div>
+
+
+
+
+
+            </div>
+            </section>
+
+    <!-- Paper poster -->
+    <!-- <section class="hero is-small is-light">
+        <div class="hero-body">
+            <div class="container">
+                <h2 class="title">Poster</h2>
+    
+                <iframe src="static/img/DataDAM-ICCV23-Poster.pdf" width="100%" height="550">
+                </iframe>
+    
+            </div>
+        </div>
+    </section> -->
+    <!--End paper poster -->
+
+    <hr />
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>
+            @article{malekzadeh2024ex,
+            title={EX-DRL: Hedging Against Heavy Losses with EXtreme Distributional Reinforcement Learning},
+            author={Malekzadeh, Parvin and Poulos, Zissis and Chen, Jacky and Wang, Zeyu and Plataniotis, Konstantinos N},
+            journal={arXiv preprint arXiv:2408.12446},
+            year={2024}
+            }
+
+        </code></pre>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                        This website design comes from <a href="https://keunhong.com/">Keunhong Park's</a> <a
+                            href="https://camp-nerf.github.io/">CamP project page</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
